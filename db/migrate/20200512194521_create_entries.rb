@@ -4,6 +4,7 @@ class CreateEntries < ActiveRecord::Migration[6.0]
       t.string :title
       t.text :content
       t.integer :wordcount
+      t.integer :goal
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

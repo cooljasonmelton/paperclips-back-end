@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_05_12_194621) do
     t.string "title"
     t.text "content"
     t.integer "wordcount"
+    t.integer "goal"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
