@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2020_05_12_194621) do
     t.string "email"
     t.string "password_digest"
     t.text "bio"
+    t.integer "current_goal"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
