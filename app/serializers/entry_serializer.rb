@@ -1,5 +1,5 @@
 class EntrySerializer < ActiveModel::Serializer
-  attributes :id, :title, :wordcount, :goal, :timestamps, include: true
+  attributes :id, :content, :wordcount, :goal, :created_at
   has_one :user
 
 
