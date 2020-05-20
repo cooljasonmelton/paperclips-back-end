@@ -1,18 +1,30 @@
 class EntriesController < ApplicationController
-    skip_before_action :authorized, only: :create
+    skip_before_action :authorized, only: [:create, :index]
+
+    def index
+        render json: Entry.all
+    end 
 
 
     def create
         user = User.find_by(id: params[:userId])
-
         selected_date = Date.parse(params[:date])
-        entry = Entry.find_or_create_by(:created_at => selected_date.beginning_of_day..selected_date.end_of_day)  
-        entry.assign_attributes(content: params[:content], wordcount: params[:wordCount], goal: params[:goal])
+        entries = Entry.where("created_at >= ?", Time.zone.now.beginning_of_day)
+
+        entry = entries.select{ |e| e.user_id == user.id }[0]
+        p '*************'
+        p entry
+
+        # entry = Entry.find(user_id: user.id, created_at: selected_date.beginning_of_day..selected_date.end_of_day)
         
-        user.entries << entry
-        
+        if entry 
+            entry.update(content: params[:content], wordcount: params[:wordCount], goal: params[:goal])
+        else 
+            entry = Entry.create(user_id: user.id, content: params[:content], wordcount: params[:wordCount], goal: params[:goal]) 
+        end 
         render json: entry
 
+        
     end 
 
 
