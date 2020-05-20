@@ -1,8 +1,22 @@
 class UsersController < ApplicationController
-    skip_before_action :authorized, only: [:create, :index]
+    skip_before_action :authorized, only: [:create, :index, :profile]
 
     def index
         render json: User.all
+    end 
+
+    def profile
+      token = request.headers['Authorization'].split(' ')[1]
+      decoded_token = JWT.decode token, 'bigwetass', true, { algorithm: 'HS256' }
+      user_id = decoded_token[0]['user_id']
+      user = User.find(user_id)
+  
+      if user
+        render json: { user: UserSerializer.new(user) }
+      else
+        render json: { error: 'Invalid token.'}, status: 401
+      end
+
     end 
 
 
