@@ -12,6 +12,7 @@ class UsersController < ApplicationController
       user = User.find(user_id)
   
       if user
+        user.fill_missing_entries
         render json: { user: UserSerializer.new(user) }
       else
         render json: { error: 'Invalid token.'}, status: 401
@@ -29,6 +30,7 @@ class UsersController < ApplicationController
           render json: { error: 'failed to create user' }, status: :not_acceptable
         end
     end
+
 
     def update
       @user = User.find_by(id: params[:id])
