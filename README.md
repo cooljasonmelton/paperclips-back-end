@@ -1,7 +1,7 @@
 # Paperclips (back end)
 * A JS React/Ruby on Rails journaling application that allows users to track word counts, writing analytics, and awards cute animal pics and videos for hitting goals.  
 
-<img src="https://github.com/cooljasonmelton/paperclips-back-end/blob/master/Animated%20GIF-downsized_large%20(2).gif?raw=true" width="1000"/>
+<img src="https://github.com/cooljasonmelton/paperclips-back-end/blob/master/Animated%20GIF-downsized_large%20(2).gif?raw=true" width=""/>
 
 ### Link to Front End
 <a href='https://github.com/cooljasonmelton/paperclips-front-end'>https://github.com/cooljasonmelton/paperclips-front-end<a>
