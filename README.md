@@ -15,7 +15,7 @@
 ## Built With​
 * React
 * Ruby on Rails RESTful API
-* Redux and BrowserRouter
+* Redux and React Router
 * <a href='https://github.com/fullcalendar/fullcalendar-react'>FullCalender</a>
 * <a href='https://www.chartjs.org/'>Chart.js</a>
 * <a href='http://watir.com/'>Watir (webscraper)</a>
